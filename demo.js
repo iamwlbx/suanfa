@@ -14,7 +14,18 @@ const rl = require('readline').createInterface({ input: process.stdin })
 const iter = rl[Symbol.asyncIterator]()
 const readline = async () => (await iter.next()).value
 void async function () {
-  
+  const n = parseInt(await readline())
+  const device = (await readline()).split(' ').map(Number)
+  const p_max = parseInt(await readline())
+
+  let dp = new Array(p_max+1).fill(0)
+
+  for(let i = 0;i<n;i++){
+    for(let j =p_max;j>=device[i];j--){
+      dp[j] = max(dp[j])
+    }
+  }
+
 }()
 /**
  * 猜单词字谜
