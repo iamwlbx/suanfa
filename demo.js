@@ -7,16 +7,44 @@
 // void async function(){
 // }()
 
+
 const rl = require('readline').createInterface({ input: process.stdin })
 const iter = rl[Symbol.asyncIterator]()
 const readline = async () => (await iter.next()).value
 void async function () {
-  const n = parseInt(await readline())
-  const k = parseInt(await readline())
-  
+  /**
+   * 
+   */
 
-
-
+  /**
+   * 找第k个排列，康托展开公式
+   */
+  // const n = parseInt(await readline())
+  //   const k = parseInt(await readline())
+  //   rl.close()
+  //   const arr = Array.from({ length: n }, (_, i) => i + 1)
+  //   const factorial = [1] // 阶乘结果
+  //   for (let i = 1; i <= n; i++) {
+  //     factorial[i] = factorial[i - 1] * i
+  //   }
+  //   let position = k - 1  // 当前剩余排列中的位置，-1是因为康托展开，是0开始，但是题目一般是以1开始
+  //   let result = []
+  //   for (let i = 1; i <= n; i++) {
+  //     const times = factorial[n - i]  // 当前确定一项，比如：1，那么剩余就有 n-1的阶乘个排列可能
+  //     const res = Math.floor(position / times)  // 用当前排列中的位置 整除 times个排列可能得到在第几行
+  //     result.push(arr[res]) // 比如第2行，那么就是 [1,2,3]中的3，此时代表排列到了第二行，也就是3
+  //     arr.splice(res, 1)  // res已经被排列，那么后面的排列就不要再考虑res
+  //     position = position % times // 确定下一次排列的位置，
+  //     // 整体举例：
+  //     // 比如当前排列了 [
+  //     // 0: 123 132 
+  //     // 1: 213 231 
+  //     // 2: 312 321
+  //     // ] ，初始我要第3个，可以确定在 第1行，
+  //     // 那么2就被确定了。因为此时我要第三个，那么我需要模除剩余排列的次数，为1
+  //     // 下一次我就在 尚未确定1、3的排列组合中寻找第1个位置的数据
+  //   }
+  //   console.log(result.join(''));
 
   /**
   * 题目：单词接龙
