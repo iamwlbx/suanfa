@@ -7,28 +7,75 @@
 // void async function(){
 // }()
 
-/**
- * 
- */
 const rl = require('readline').createInterface({ input: process.stdin })
 const iter = rl[Symbol.asyncIterator]()
 const readline = async () => (await iter.next()).value
 void async function () {
-  const n = parseInt(await readline())
-  const device = (await readline()).split(' ').map(Number)
-  const p_max = parseInt(await readline())
 
-  let dp = new Array(p_max+1).fill(0)
 
-  for(let i = 0;i<n;i++){
-    for(let j =p_max;j>=device[i];j--){
-      dp[j] = max(dp[j])
-    }
-  }
 
+
+
+  /**
+  * 题目：单词接龙
+  */
+  // const idx = parseInt(await readline()) // 起始索引
+  // const wordNum = parseInt(await readline()) // 单词个数
+  // const wordArr = []
+  // for (let i = 0; i < wordNum; i++) {
+  //   wordArr.push(await readline())
+  // }
+  // rl.close()
+  // const getWord = (word) => {
+  //   const l = word.slice(word.length - 1)
+  //   const res = wordArr.filter(w => w.slice(0, 1) === l).sort((a, b) => {
+  //     if (a.length === b.length) {
+  //       return a > b ? 1 : -1 // a的字典顺序比b大，则b在前（降序a-b）
+  //     } else {
+  //       return b.length - a.length // b比a长，则b在前（升序b-a）
+  //     }
+  //   })
+  //   return res.length > 0 ? res[0] : false
+  // }
+  // let current = wordArr[idx]
+  // let currentArr = [current]
+  // wordArr.splice(idx, 1)
+  // while (wordArr.length > 0) {
+  //   const word = getWord(current)
+  //   if (word) {
+  //     currentArr.push(word)
+  //     wordArr.splice(wordArr.findIndex(i => i === word), 1)
+  //   } else {
+  //     break;
+  //   }
+  //   current = word
+  // }
+  // console.log(currentArr.join(''));
 }()
+
 /**
- * 猜单词字谜
+ * 题目：计算充电桩最大功率（0/1背包问题）
+ */
+// const rl = require('readline').createInterface({ input: process.stdin })
+// const iter = rl[Symbol.asyncIterator]()
+// const readline = async () => (await iter.next()).value
+// void async function () {
+//   const n = parseInt(await readline())
+//   const device = (await readline()).split(' ').map(Number)
+//   const p_max = parseInt(await readline())
+//   rl.close()
+//   let dp = new Array(p_max + 1).fill(0)
+//   // 初始化很重要
+//   for (let i = 0; i < n; i++) {
+//     for (let j = p_max; j >= device[i]; j--) {
+//       // 实际就是循环遍历最大值～当前设备的功率，保证dp[j]是dp[j]（当前最大值/之前设备计算时走过的最大值）和 当前dp[j]最大值不包含当前设备功率时再加上当前功率的值 => 计算的最大值
+//       dp[j] = Math.max(dp[j], dp[j - device[i]] + device[i])
+//     }
+//   }
+//   console.log(Math.max(...dp));
+// }()
+/**
+ * 题目：猜单词字谜
  */
 // const rl = require('readline').createInterface({ input: process.stdin })
 // const iter = rl[Symbol.asyncIterator]()
