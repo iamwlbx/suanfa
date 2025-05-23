@@ -11,7 +11,9 @@ const rl = require('readline').createInterface({ input: process.stdin })
 const iter = rl[Symbol.asyncIterator]()
 const readline = async () => (await iter.next()).value
 void async function () {
-
+  const n = parseInt(await readline())
+  const k = parseInt(await readline())
+  
 
 
 
